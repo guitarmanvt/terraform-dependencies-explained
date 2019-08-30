@@ -1,0 +1,14 @@
+#!/bin/bash
+set -ue
+EXAMPLE=$1
+echo "* Running example $EXAMPLE"
+cd $EXAMPLE
+rm -f *tfstate*
+echo "* Initializing..."
+terraform init 2>&1 > /dev/null
+echo "* Applying..."
+terraform apply -auto-approve | grep '___$'
+echo "* Outputs:"
+terraform output 2>/dev/null || echo '(No outputs.)'
+cd ..
+echo "* Done."

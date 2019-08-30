@@ -1,0 +1,12 @@
+#!/bin/bash
+# Run all the examples.
+set -ue
+./run 1-resources-without-dependencies
+./run 2-resource-dependencies
+./run 3-implied-by-wiring-outputs-into-inputs
+./run 4-module-dependency-part-1
+./run 5-module-dependency-part-2
+./run 6-ignoring-module-dependency
+./run 7-running-after-module-complete
+./run 8-multiple-module-dependencies
+./run 9-full-example
